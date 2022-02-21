@@ -1,0 +1,14 @@
+Nombre: Esteban Alvarado Vargas
+Carne: 2018109336
+
+Fecha: jue 10 feb 15:44:06 CST 2022
+Usuario: estalvgs
+Kernel: 5.4.0-99-generic
+Lista de procesos:
+    PID TTY          TIME CMD
+  45379 pts/2    00:00:09 zsh
+  45383 pts/2    00:00:00 zsh
+  45846 pts/2    00:00:00 zsh
+  45847 pts/2    00:00:00 zsh
+  45849 pts/2    00:00:00 gitstatusd-linu
+  48541 pts/2    00:00:00 ps
