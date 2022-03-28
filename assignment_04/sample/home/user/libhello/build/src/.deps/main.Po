@@ -1,0 +1,5 @@
+main.o: ../../src/main.c /usr/include/stdc-predef.h ../../include/say.h
+
+/usr/include/stdc-predef.h:
+
+../../include/say.h:
