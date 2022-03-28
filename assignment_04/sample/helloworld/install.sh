@@ -2,8 +2,9 @@
 
 HOME=$(pwd)
 
-echo "Moving to helloworld ..."
-cd helloworld
+echo "Run installation script ..."
+sudo apt install autoconf libtool autotools-dev
+autoreconf --install
 ls
 cat configure
 
@@ -13,7 +14,7 @@ cd build
 mkdir usr
 
 echo "Configuring ..."
-../configure --prefix=${HOME}/helloworld/build/usr
+../configure --prefix=${HOME}/build/usr
 
 echo "Building ..."
 make
