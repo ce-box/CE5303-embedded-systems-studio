@@ -26,15 +26,28 @@ double _div(float x, float y)
     return x / y;
 }
 
-// Calcula la raíz cuadrada
-double _sqrt(float x)
+double power(double base, int exp)
 {
-    double A = 1;
-
-    for (int i = 0; i < x / 2; i++)
+    double result = 1;
+    while (exp-- > 0)
     {
-        A += ((x - 1) / (i * (i + 1))) / (2 * x);
+        result *= base;
     }
 
-    return A + (x - A * A) / (2 * A);
+    return result;
+}
+
+// Calcula la raíz cuadrada
+double _sqrt(float n)
+{
+    double sum = 0;
+
+    for (int i = 1; i <= n / 2; i++)
+    {
+        sum += (n - 1) / ((2 * n) * (power(i, 2) + i));
+    }
+
+    double A = 1 + sum;
+
+    return A + (n - power(A, 2)) / 2 * A;
 }

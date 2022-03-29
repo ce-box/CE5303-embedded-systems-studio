@@ -57,12 +57,12 @@ void div_test()
 
 void sqrt_test()
 {
-    int xv[] = {2, 4, 16, 24, 49};
+    int xv[] = {1, 2, 4};
 
-    for (int i = 0; i < 5; i++)
+    for (int i = 0; i < 3; i++)
     {
         int x = xv[i];
-        printf("\033[01;33m[sqrt]\033[0:m op: sqrt(%i), result: %.1f\n", x, _sqrt(x));
+        printf("\033[01;33m[sqrt]\033[0:m op: sqrt(%i), result: %.6f\n", x, _sqrt(x));
     }
     printf("\n");
 }
