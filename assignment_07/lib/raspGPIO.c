@@ -2,7 +2,8 @@
 
 int enablePin(int pin)
 {
-    char *_pin;
+    char *sysPath = getenv("SYS_PATH");
+    char *_pin = malloc(sizeof(char) * 2);
     char *path = malloc(sizeof(char) * 512);
     sprintf(_pin, "%d", pin);
     sprintf(path, "%s/export", sysPath);
@@ -20,15 +21,17 @@ int enablePin(int pin)
         perror("Error enabling pin in GPIO configuration file ...");
         exit(1);
     }
-    free(path);
     close(fd);
+    free(path);
+    free(_pin);
 
     return 0;
 }
 
 int disablePin(int pin)
 {
-    char *_pin;
+    char *sysPath = getenv("SYS_PATH");
+    char *_pin = malloc(sizeof(char) * 2);
     char *path = malloc(sizeof(char) * 512);
     sprintf(_pin, "%d", pin);
     sprintf(path, "%s/unexport", sysPath);
@@ -46,14 +49,16 @@ int disablePin(int pin)
         perror("Error disabling pin in GPIO configuration file ...");
         exit(1);
     }
-    free(path);
     close(fd);
+    free(path);
+    free(_pin);
 
     return 0;
 }
 
 int pinMode(int pin, char *mode)
 {
+    char *sysPath = getenv("SYS_PATH");
     char *filePath = malloc(sizeof(char) * 512);
     sprintf(filePath, "%s/gpio%d/direction", sysPath, pin);
 
@@ -79,8 +84,9 @@ int pinMode(int pin, char *mode)
 
 int digitalWrite(int pin, int value)
 {
+    char *sysPath = getenv("SYS_PATH");
     char *filePath = malloc(sizeof(char) * 512);
-    char *pinValue;
+    char *pinValue = malloc(sizeof(char) * 5);
     sprintf(filePath, "%s/gpio%d/value", sysPath, pin);
     sprintf(pinValue, "%d", value);
 
@@ -99,6 +105,7 @@ int digitalWrite(int pin, int value)
     }
 
     close(fd);
+    free(pinValue);
     free(filePath);
 
     return 0;
@@ -106,9 +113,9 @@ int digitalWrite(int pin, int value)
 
 int digitalRead(int pin)
 {
-    int value;
+    char *sysPath = getenv("SYS_PATH");
     char *filePath = malloc(sizeof(char) * 512);
-    char *pinValue;
+    char *pinValue = malloc(sizeof(char) * 2);
     sprintf(filePath, "%s/gpio%d/value", sysPath, pin);
     int fd = open(filePath, O_RDONLY);
 
@@ -124,10 +131,28 @@ int digitalRead(int pin)
         exit(1);
     }
 
-    value = atoi(pinValue);
+    int value = atoi(pinValue);
 
     close(fd);
+    free(pinValue);
     free(filePath);
 
     return value;
+}
+
+int blink(int pin, int freq, int duration)
+{
+
+    double freqTime = 1000000.0 / freq;
+    time_t startTime = time(0);
+
+    while ((time(0) - startTime) < duration)
+    {
+        digitalWrite(pin, 1);
+        usleep(freqTime);
+        digitalWrite(pin, 0);
+        usleep(freqTime);
+    }
+
+    return 0;
 }
