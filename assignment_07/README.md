@@ -39,7 +39,10 @@ echo 1 > /sys/class/gpio/gpio24/value
 5. Pruebe el entorno de compilación con el comando `echo $CC`, la salida debe ser similar a la siguiente:
 
 ```text
-La salida :3
+arm-poky-linux-gnueabi-gcc -mthumb -mfpu=neon-vfpv4
+-mfloat-abi=hard -mcpu=cortex-a7 -fstack-protector-strong -D_FORTIFY_SOURCE=2 
+-Wformat -Wformat-security -Werror=format-security
+--sysroot=/opt/poky/3.1.2/sysroots/cortexa7t2hf-neon-vfpv4-poky-linux-gnueabi
 ```
 
 6. Cambie el valor de `CC` en el archivo de configuración de compilación cruzada por `arm-poky-linux-gnueabi`.
