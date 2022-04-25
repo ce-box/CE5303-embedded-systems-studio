@@ -1,0 +1,1 @@
+obj-m := memory_32.o
