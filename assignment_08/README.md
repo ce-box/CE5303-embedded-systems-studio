@@ -43,9 +43,11 @@ or
 chmod +x run.sh
 ./run.sh
 ```
+
 The output of the memory driver's test must be like those:
 
-![Memory Driver (1 bit)](/home/estalvgs/Documentos/tec/embedded-systems/CE5303-embedded-systems-studio/assignment_08/imgs)
+![Memory Driver (1 bit)](https://github.com/ce-box/CE5303-embedded-systems-studio/blob/master/assignment_08/imgs/mem1.png)
+![Memory Driver (32 bit)](https://github.com/ce-box/CE5303-embedded-systems-studio/blob/master/assignment_08/imgs/mem32.png)
 
 ***
 
