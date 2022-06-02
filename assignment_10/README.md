@@ -1,6 +1,6 @@
-# Assignment 09
+# Assignment 10
 
-## Raspberry PI Timer Driver Library
+## Raspberry PI GPIO Driver
 
 **Students:** Gabriel Abarca, Esteban Alvarado, María Ávila, Olman Castro
 
@@ -21,20 +21,29 @@ sudo apt install make \
                 libtool
 ```
 
-> ⚠️ **In order to use the library, you first need to install the driver on the device. You can refer to the lab manual in section 3 and use the source code found in the timer-mod directory.**
+> ⚠️ **In order to use the library, you first need to install the GPIO driver on the device. You can refer to the lab manual in sections 4, 5 and 7. Use the source code found in the sample/rasp-drivers directory.**
+
+#### Compilation
+
+```sh
+source /opt/poky/2.3.4/environment-setup-cortexa7hf-neon-vfpv4-poky-linux-gnueabi $CC -o gpio gpio.c
+```
+
+***
 
 ### Build library 🗃
 
 In this section we will use make, as part of autotools, for driver compilation.
 
 #### Using tar.gz file
-First, we need to extract the content of the `libtime_timer-1.0.tar.gz` file:
+
+First, we need to extract the content of the `libraspgpio-1.0.tar.gz` file:
 
 ```sh
 tar -xvf libstdmath-1.0.tar.gz
 ```
 
-Then, move to the `libtime_turner-1.0/` directory and create 2 directories:
+Then, move to the `libraspGPIO-1.0/` directory and create 2 directories:
 
 ```sh
 mkdir build
@@ -56,7 +65,7 @@ ls
 
 ### Cloning repository
 
-If you downloaded the repository and will be using the source code, just change to `libtime_turner/` directory an run:
+If you downloaded the repository and will be using the source code, just change to `libraspGPIO/` directory an run:
 
 ```bash
 sh install.sh
