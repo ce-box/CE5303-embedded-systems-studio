@@ -66,7 +66,7 @@ The output of the memory driver's test must be like those:
 
 ![Memory Driver (1 bit)](https://github.com/ce-box/CE5303-embedded-systems-studio/blob/master/assignment_08/imgs/mem1.png)
 
-#### 34. Memory Driver for 32-bit Data
+#### 4. Memory Driver for 32-bit Data
 
 In this section, the above driver is modified to support 32-bit wide writes and reads to the virtual device.
 
