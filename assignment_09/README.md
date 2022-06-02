@@ -20,7 +20,7 @@ sudo apt install make \
                 libtool
 ```
 
-⚠️ In order to use the library, you first need to install the driver on the device. You can refer to the lab manual in section 3 and use the source code found in the timer-mod directory.
+> ⚠️ **In order to use the library, you first need to install the driver on the device. You can refer to the lab manual in section 3 and use the source code found in the timer-mod directory.**
 
 ### Build library 🗃
 
